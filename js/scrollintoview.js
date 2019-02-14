@@ -5,13 +5,13 @@
 (function() {
 	if(!HTMLElement.prototype.scrollIntoView) {
 		HTMLElement.prototype.scrollIntoView = function() {
-			for(var p = this.parentNode, e = this.getBoundingClientRect(), t = p.getBoundingClientRect(), s; p != document.documentElement; p = p.parentNode, t = p.getBoundingClientRect()) {
+			for(var p = this.parentNode, t = p.getBoundingClientRect(); p != document.documentElement; p = p.parentNode, t = p.getBoundingClientRect()) {
 				if(!(Math.round(t.height) >= p.scrollHeight)) {
 					p.scrollIntoView();
 					break;
 				}
 			}
-			s = p.scrollTop + e.top - t.top;
+			let s = p.scrollTop + this.getBoundingClientRect().top - t.top;
 			if(p === document.body) document.documentElement.scrollTop = p.scrollTop = s;
 			else p.scrollTop = s;
 		}
