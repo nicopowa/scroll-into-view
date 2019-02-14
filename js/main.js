@@ -29,11 +29,13 @@ function test() {
 	
 	setTimeout(function scroll() {
 		var el = scrolltable.childNodes[800];
+		//el.scrollIntoView();
 		scrollIntoView(el);
 	}, 2000);
 	
 	setTimeout(function scroll() {
 		var el = overflowtable.childNodes[800];
+		//el.scrollIntoView();
 		scrollIntoView(el);
 	}, 4000);
 }
