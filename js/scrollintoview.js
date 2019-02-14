@@ -1,17 +1,21 @@
 /**
 * @nocollapse
-* @export
-* @method scrollIntoView: 
+* @method scrollIntoView: element.scrollIntoView polyfill
 */
-function scrollIntoView(el) {
-	let p = el.parentNode, e = el.getBoundingClientRect(), t = p.getBoundingClientRect(), o = window.getComputedStyle(p)["overflow-y"], s;
-	for(; p != document.documentElement; p = p.parentNode, t = p.getBoundingClientRect(), o = window.getComputedStyle(p)["overflow-y"]) {
-		 if(Math.round(t.height) <= p.scrollHeight) {
-			 scrollIntoView(p);
-			 break;
-		 }
+(function() {
+	if(!HTMLElement.prototype.scrollIntoView) {
+		HTMLElement.prototype.scrollIntoView = function() {
+			console.log("scroll", this.nodeName);
+			for(var p = this.parentNode, e = this.getBoundingClientRect(), t = p.getBoundingClientRect(), s; p != document.documentElement; p = p.parentNode, t = p.getBoundingClientRect()) {
+				if(!(Math.round(t.height) >= p.scrollHeight)) {
+					p.scrollIntoView();
+					break;
+				}
+			}
+			s = p.scrollTop + e.top - t.top;
+			if(p === document.body) document.documentElement.scrollTop = p.scrollTop = s;
+			else p.scrollTop = s;
+		}
 	}
-	s = p.scrollTop + e.top - t.top;
-	if(p === document.body) document.documentElement.scrollTop = p.scrollTop = s;
-	else p.scrollTop = s;
-}
+	else console.log("native scrollIntoView ok");
+})();
