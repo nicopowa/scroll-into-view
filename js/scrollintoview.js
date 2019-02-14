@@ -5,7 +5,6 @@
 (function() {
 	if(!HTMLElement.prototype.scrollIntoView) {
 		HTMLElement.prototype.scrollIntoView = function() {
-			console.log("scroll", this.nodeName);
 			for(var p = this.parentNode, e = this.getBoundingClientRect(), t = p.getBoundingClientRect(), s; p != document.documentElement; p = p.parentNode, t = p.getBoundingClientRect()) {
 				if(!(Math.round(t.height) >= p.scrollHeight)) {
 					p.scrollIntoView();
@@ -17,5 +16,5 @@
 			else p.scrollTop = s;
 		}
 	}
-	else console.log("native scrollIntoView ok");
+	else console.log("native element.scrollIntoView() ok");
 })();
