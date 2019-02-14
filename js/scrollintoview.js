@@ -16,5 +16,4 @@
 			else p.scrollTop = s;
 		}
 	}
-	else console.log("native element.scrollIntoView() ok");
 })();
