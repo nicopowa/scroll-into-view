@@ -1,6 +1,7 @@
 window.addEventListener("load", main);
 
 var scrolltable;
+var morescrolltable;
 var overflowtable;
 
 function main(event) {
@@ -18,11 +19,23 @@ function test() {
 	div.style.width = "200px";
 	div.style.height = "200px";
 	div.style.top = "200px";
-	div.style.left = "350px";
+	div.style.left = "2350px";
 	document.body.appendChild(div);
 	
 	scrolltable = makeTable();
 	div.appendChild(scrolltable);
+	
+	var morediv = document.createElement("div");
+	morediv.style.overflow = "scroll";
+	morediv.style.position = "absolute";
+	morediv.style.width = "200px";
+	morediv.style.height = "200px";
+	morediv.style.top = "900px";
+	morediv.style.left = "1500px";
+	document.body.appendChild(morediv);
+	
+	morescrolltable = makeTable();
+	morediv.appendChild(morescrolltable);
 	
 	overflowtable = makeTable();
 	document.body.appendChild(overflowtable);
@@ -34,10 +47,16 @@ function test() {
 	}, 2000);
 	
 	setTimeout(function scroll() {
-		var el = overflowtable.childNodes[800];
+		var el = morescrolltable.childNodes[800];
 		el.scrollIntoView();
 		//scrollIntoView(el);
 	}, 4000);
+	
+	setTimeout(function scroll() {
+		var el = overflowtable.childNodes[800];
+		el.scrollIntoView();
+		//scrollIntoView(el);
+	}, 6000);
 }
 
 function makeTable() {
