@@ -6,7 +6,7 @@
 	if(!HTMLElement.prototype.scrollIntoView) {
 		HTMLElement.prototype.scrollIntoView = function() {
 			for(var p = this.parentNode, r = p.getBoundingClientRect(); p != document.documentElement; p = p.parentNode, r = p.getBoundingClientRect()) {
-				if(!(Math.round(r.height) >= p.scrollHeight)) {
+				if(!(Math.round(r.height) >= p.scrollHeight)) { // || !(Math.round(r.width) >= p.scrollWidth)
 					p.scrollIntoView();
 					break;
 				}

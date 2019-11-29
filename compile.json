@@ -1,0 +1,27 @@
+{
+	"default": {
+		"output_file": "js/scrollintoview.min.js",
+		"files": [
+			"js/scrollintoview.js"
+		],
+		"options": {
+			
+		},
+		"externs": [
+		
+		]
+	},
+	
+	"debug": {
+		"output_file": "js/scrollintoview.min.js",
+		"files": [
+			"js/scrollintoview.js"
+		],
+		"options": {
+			"define": "DEBUG=true"
+		},
+		"externs": [
+		
+		]
+	}
+}
