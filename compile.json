@@ -4,9 +4,9 @@
 		"files": [
 			"js/scrollintoview.js"
 		],
-		"options": {
-			
-		},
+		"options": [
+			{"define": "DEBUG=false"}
+		],
 		"externs": [
 		
 		]
@@ -17,9 +17,9 @@
 		"files": [
 			"js/scrollintoview.js"
 		],
-		"options": {
-			"define": "DEBUG=true"
-		},
+		"options": [
+			{"define": "DEBUG=true"}
+		],
 		"externs": [
 		
 		]
